@@ -1,18 +1,34 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
 
+  // // Write your algorithm here
 
+  const seenNumbers = { }
 
-  for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-
-    if (element + array[index+1] == target || element + array[index+2] == target || element + array[index+3] == target || element + array[index+4] == target 
-      || element + array[index+5] == target || element + array[index+6] == target || array[index + 1] + array[index+3] == target){
-      element + 1;
-      return true;
+  for (let i = 0; i < array.length; i++) {
+    const complement = target - array[i];
+    if (seenNumbers[complement]) return true; 
+    seenNumbers[array[i]] = true; 
+      
     }
-    else return false;
+    return false;
   }
+
+
+
+  // for (let index = 0; index < array.length; index++) {
+  //   const element = array[index];
+  //   for (let j = index + 1 ; j < array.length; j++) {
+  //     const element2 = array[j];
+  //     if (element + element2 == target || element + (element2 + 1) == target) {
+  //       return true
+  //     }
+  //     // if (element + array[index+1] == target || element + array[index+2] == target || element + array[index+3] == target || element + array[index+4] == target 
+  //   //   || element + array[index+5] == target || element + array[index+6] == target || array[index + 1] + array[index+3] == target){
+  //   //   element + 1;
+  //   //   return true;
+  //   else return false;
+  
+
   
 // if ( array[0] + array[1] == target || array[0] + array[2] == target || array[0] + array[3] == target || array[0] + array[4] == target || array[0] + array[5] == target
 //     || array[1] + array[2] == target || array[1] + array[3] == target || array[1] + array[4] == target || array[1] + array[5] == target
@@ -29,7 +45,7 @@ function hasTargetSum(array, target) {
   //       return true;
   //   if sum of any two numbers != target
   //      return false;
-}
+
 
 /* 
   Write the Big O time complexity of your function here
